@@ -22,3 +22,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+.DS_Store
+.gitignore
+*/.DS_Store
+*/*.iml

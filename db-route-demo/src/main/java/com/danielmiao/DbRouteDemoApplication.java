@@ -4,6 +4,7 @@ import com.danielmiao.repository.domain.MemberBaseEntity;
 import com.danielmiao.route.DataBaseRoute;
 import com.danielmiao.route.DataBaseRouteRegister;
 import com.danielmiao.route.SplitInterceptor;
+import com.danielmiao.route.TransInterceptor;
 import com.danielmiao.service.MemberBaseService;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.hibernate.jpa.HibernatePersistenceProvider;
@@ -93,6 +94,11 @@ public class DbRouteDemoApplication {
     @Bean
     public SplitInterceptor splitInterceptor(){
         return new SplitInterceptor(1);
+    }
+
+    @Bean
+    public TransInterceptor transInterceptor() {
+        return new TransInterceptor(2);
     }
 
     public static void main(String[] args) {

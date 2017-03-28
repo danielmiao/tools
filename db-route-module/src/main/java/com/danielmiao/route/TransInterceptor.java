@@ -19,12 +19,7 @@ public class TransInterceptor implements Ordered {
 		this.order = order;
 	}
 
-	private static final ThreadLocal<Stack<TransactionalNode>> _stack = new ThreadLocal<Stack<TransactionalNode>>() {
-		@Override
-		protected Stack<TransactionalNode> initialValue() {
-			return new Stack<>();
-		};
-	};
+	private static final ThreadLocal<Stack<TransactionalNode>> _stack =ThreadLocal.withInitial(Stack::new);
 
 	@Around("@annotation(transactional)")
 	public static Object pointTransactional(ProceedingJoinPoint point, Transactional transactional) throws Throwable {
